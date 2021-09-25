@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ShoppingController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,8 +22,12 @@ Route::get('/', [FrontEndController::class, 'index']);
 
 Auth::routes();
 
-route::get('/product/{product}', [FrontEndController::class, 'singleProduct'])->name('product.single');
+Route::get('/product/{product}', [FrontEndController::class, 'singleProduct'])->name('product.single');
+
+Route::post('/cart/add', [ShoppingController::class, 'add_to_cart'])->name('cart.add');
+
+Route::get('/cart', [ShoppingController::class, 'cart'])->name('cart');
 
 Route::resource('products', ProductController::class);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
