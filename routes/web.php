@@ -20,6 +20,8 @@ Route::get('/', [FrontEndController::class, 'index']);
 
 Auth::routes();
 
+route::get('/product/{product}', [FrontEndController::class, 'singleProduct'])->name('product.single');
+
 Route::resource('products', ProductController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
