@@ -30,6 +30,12 @@ Route::get('/cart', [ShoppingController::class, 'cart'])->name('cart');
 
 Route::get('/cart/delete/{product}', [ShoppingController::class, 'cartDelete'])->name('cart.delete');
 
+Route::get('/cart/incr/{product}/{qty}', [ShoppingController::class, 'incr'])->name('cart.incr');
+
+Route::get('/cart/decr/{product}/{qty}', [ShoppingController::class, 'decr'])->name('cart.decr');
+
+Route::get('/cart/rapid/add/{product}', [ShoppingController::class, 'rapidAdd'])->name('cart.rapid.add');
+
 Route::resource('products', ProductController::class);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');

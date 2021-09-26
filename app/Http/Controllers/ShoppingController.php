@@ -20,13 +20,12 @@ class ShoppingController extends Controller
             'price' => $pdt->price
         ]);
         Cart::associate($cartItem->rowId, 'App\Models\Product');
-        // Session::flash('success', 'Product added to cart.');
+        Session::flash('success', 'Product added to cart.');
         return redirect()->route('cart');
     }
 
     public function cart()
     {
-        // Cart::destroy();
         return view('cart');
     }
 
@@ -38,38 +37,39 @@ class ShoppingController extends Controller
         return redirect()->back();
     }
 
-    // public function incr($id, $qty)
-    // {
-    //     Cart::update($id, $qty + 1);
+    public function incr($id, $qty)
+    {
 
-    //     Session::flash('success', 'Product qunatity updated.');
+        Cart::update($id, $qty + 1);
 
-    //     return redirect()->back();
-    // }
-    // public function decr($id, $qty)
-    // {
-    //     Cart::update($id, $qty - 1);
+        Session::flash('success', 'Product qunatity updated.');
 
-    //     Session::flash('success', 'Product qunatity updated.');
+        return redirect()->back();
+    }
+    public function decr($id, $qty)
+    {
+        Cart::update($id, $qty - 1);
 
-    //     return redirect()->back();
-    // }
+        Session::flash('success', 'Product qunatity updated.');
 
-    // public function rapid_add($id)
-    // {
-    //     $pdt = Product::find($id);
+        return redirect()->back();
+    }
 
-    //     $cartItem = Cart::add([
-    //         'id' => $pdt->id,
-    //         'name' => $pdt->name,
-    //         'qty' => 1,
-    //         'price' => $pdt->price
-    //     ]);
+    public function rapidAdd($id)
+    {
+        $pdt = Product::find($id);
 
-    //     Cart::associate($cartItem->rowId, 'App\Product');
+        $cartItem = Cart::add([
+            'id' => $pdt->id,
+            'name' => $pdt->name,
+            'qty' => 1,
+            'price' => $pdt->price
+        ]);
 
-    //     Session::flash('success', 'Product added to cart.');
+        Cart::associate($cartItem->rowId, 'App\Models\Product');
 
-    //     return redirect()->route('cart');
-    // }
+        Session::flash('success', 'Product added to cart.');
+
+        return redirect()->route('cart');
+    }
 }
