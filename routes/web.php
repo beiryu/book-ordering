@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FrontEndController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShoppingController;
@@ -35,6 +36,8 @@ Route::get('/cart/incr/{product}/{qty}', [ShoppingController::class, 'incr'])->n
 Route::get('/cart/decr/{product}/{qty}', [ShoppingController::class, 'decr'])->name('cart.decr');
 
 Route::get('/cart/rapid/add/{product}', [ShoppingController::class, 'rapidAdd'])->name('cart.rapid.add');
+
+Route::get('/cart/checkout', [CheckoutController::class, 'index'])->name('cart.checkout');
 
 Route::resource('products', ProductController::class);
 
