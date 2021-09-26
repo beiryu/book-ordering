@@ -24,8 +24,8 @@ class ProductFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'image' => 'uploads/products/book2.png',
-            'price' => $this->faker->numberBetween(1000, 10000),
+            'image' => 'uploads/products/book3.png',
+            'price' => $this->faker->numberBetween(100, 1000) * 1000,
             'description' => $this->faker->paragraph(4)
         ];
     }

@@ -20,7 +20,7 @@ class ShoppingController extends Controller
             'price' => $pdt->price
         ]);
         Cart::associate($cartItem->rowId, 'App\Models\Product');
-        Session::flash('success', 'Product added to cart.');
+        Session::flash('success', 'Đã thêm vào giỏ hàng.');
         return redirect()->route('cart');
     }
 
@@ -33,7 +33,7 @@ class ShoppingController extends Controller
     {
         Cart::remove($id);
 
-        Session::flash('success', 'Product removed from cart.');
+        Session::flash('success', 'Đã xóa khỏi giỏ hàng.');
         return redirect()->back();
     }
 
@@ -42,7 +42,7 @@ class ShoppingController extends Controller
 
         Cart::update($id, $qty + 1);
 
-        Session::flash('success', 'Product qunatity updated.');
+        Session::flash('success', 'Đã tăng số lượng sản phẩm.');
 
         return redirect()->back();
     }
@@ -50,7 +50,7 @@ class ShoppingController extends Controller
     {
         Cart::update($id, $qty - 1);
 
-        Session::flash('success', 'Product qunatity updated.');
+        Session::flash('success', 'Đã giảm số lượng sản phẩm.');
 
         return redirect()->back();
     }
@@ -68,7 +68,7 @@ class ShoppingController extends Controller
 
         Cart::associate($cartItem->rowId, 'App\Models\Product');
 
-        Session::flash('success', 'Product added to cart.');
+        Session::flash('success', 'Đã thêm vào giỏ hàng.');
 
         return redirect()->route('cart');
     }

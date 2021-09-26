@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
@@ -56,7 +57,7 @@ class ProductController extends Controller
 
         $product->save();
 
-        // Session::flash('success', 'Product created.');
+        Session::flash('success', 'Tạo sản phẩm thành công.');
 
         return redirect()->route('products.index');
 
@@ -121,7 +122,7 @@ class ProductController extends Controller
 
         $product->save();
 
-        // Session::flash('success', 'Product updated.');
+        Session::flash('success', 'Sản phẩm đã được chỉnh sửa.');
 
         return redirect()->route('products.index');
     }
@@ -143,7 +144,7 @@ class ProductController extends Controller
 
         $product->delete();
 
-        // Session::flash('success', 'Product deleted.');
+        Session::flash('success', 'Đã xóa sản phẩm.');
 
         return redirect()->back();
     }

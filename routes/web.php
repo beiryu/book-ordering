@@ -39,6 +39,8 @@ Route::get('/cart/rapid/add/{product}', [ShoppingController::class, 'rapidAdd'])
 
 Route::get('/cart/checkout', [CheckoutController::class, 'index'])->name('cart.checkout');
 
+Route::post('/cart/checkout', [CheckoutController::class, 'pay'])->name('cart.checkout');
+
 Route::resource('products', ProductController::class);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');

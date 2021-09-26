@@ -34,7 +34,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li><a class="nav-link" href="{{ route('products.index') }}">Products</a></li>
-                        <li><a class="nav-link" href="{{ route('products.create') }}">New Products</a></li>
+                        <li><a class="nav-link" href="{{ route('products.create') }}">New Product</a></li>
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

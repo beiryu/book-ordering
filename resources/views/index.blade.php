@@ -24,11 +24,11 @@
                             <h5 class="books-title">{{ $product->name }}</h5>
                         </a>
 
-                        <div class="books-price">{{ $product->price }}</div>
+                        <div class="books-price">{{ number_format($product->price) }} VND</div>
                     </div>
 
                     <a href="{{ route('cart.rapid.add', ['product' => $product->id]) }}" class="btn btn-small btn--dark add">
-                        <span class="text">Add to Cart</span>
+                        <span class="text">Thêm vào giỏ hàng</span>
                         <i class="seoicon-commerce"></i>
                     </a>
 

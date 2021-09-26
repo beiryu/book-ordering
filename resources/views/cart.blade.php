@@ -10,7 +10,7 @@
 
                     <div class="cart">
 
-                        <h1 class="cart-title">In Your Shopping Cart: <span class="c-primary">{{ Cart::content()->count()}} items</span></h1>
+                        <h1 class="cart-title">Giỏ hàng của bạn: <span class="c-primary">{{ Cart::content()->count()}} món</span></h1>
 
                     </div>
 
@@ -53,7 +53,7 @@
                                 </td>
 
                                 <td class="product-price">
-                                    <h5 class="price amount">{{ $pdt->price }}</h5>
+                                    <h5 class="price amount">{{ number_format($pdt->price) }} VND</h5>
                                 </td>
 
                                 <td class="product-quantity">
@@ -68,7 +68,7 @@
                                 </td>
 
                                 <td class="product-subtotal">
-                                    <h5 class="total amount">{{ $pdt->total() }}</h5>
+                                    <h5 class="total amount">{{ number_format($pdt->price()) }} VND</h5>
                                 </td>
 
                             </tr>                                
@@ -78,15 +78,15 @@
                                 <td colspan="5" class="actions">
 
                                     <div class="coupon">
-                                        <input name="coupon_code" class="email input-standard-grey" value="" placeholder="Coupon code" type="text">
+                                        <input name="coupon_code" class="email input-standard-grey" value="" placeholder="Nhập code giảm giá ..." type="text">
                                         <div class="btn btn-medium btn--breez btn-hover-shadow">
-                                            <span class="text">Apply Coupon</span>
+                                            <span class="text">Mã giảm giá</span>
                                             <span class="semicircle--right"></span>
                                         </div>
                                     </div>
 
                                     <div class="btn btn-medium btn--dark btn-hover-shadow">
-                                        <span class="text">Apply Coupon</span>
+                                        <span class="text">Mã giảm giá</span>
                                         <span class="semicircle"></span>
                                     </div>
 
@@ -100,10 +100,10 @@
                     </form>
 
                     <div class="cart-total">
-                        <h3 class="cart-total-title">Cart Totals</h3>
-                        <h5 class="cart-total-total">Total: <span class="price">{{ Cart::total() }}</span></h5>
+                        <h3 class="cart-total-title">Tạm tính</h3>
+                        <h5 class="cart-total-total"><span class="price">{{ number_format(Cart::total()) }} VND</span></h5>
                         <a href="{{ route('cart.checkout') }}" class="btn btn-medium btn--light-green btn-hover-shadow">
-                            <span class="text">Checkout</span>
+                            <span class="text">Thanh toán</span>
                             <span class="semicircle"></span>
                         </a>
                     </div>

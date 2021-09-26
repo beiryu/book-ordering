@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Seosight - Shop</title>
+    <title>Ecommerce</title>
 
     <link rel="stylesheet" type="text/css" href="{{ asset('app/css/fonts.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app/css/crumina-fonts.css') }}">
@@ -48,11 +48,11 @@
 
                     <div class="cart-popup-wrap">
                         <div class="popup-cart">
-                            <h4 class="title-cart align-center">{{ Cart::total() }}</h4>
+                            <h4 class="title-cart align-center">{{ number_format(Cart::total()) }} VND</h4>
                             <br>
                             <a href="/cart">
                                 <div class="btn btn-small btn--dark">
-                                    <span class="text">View cart</span>
+                                    <span class="text">Xem giỏ hàng</span>
                                 </div>
                             </a>
                         </div>
@@ -73,8 +73,8 @@
         <div class="row pt120">
             <div class="col-lg-8 col-lg-offset-2">
                 <div class="heading align-center mb60">
-                    <h4 class="h1 heading-title">Udemy E-commerce tutorial</h4>
-                    <p class="heading-text">Buy books, and we ship to you.
+                    <h4 class="h1 heading-title">Nhà Sách Online</h4>
+                    <p class="heading-text">Địa chỉ bán sách online uy tín, chất lượng.
                     </p>
                 </div>
             </div>

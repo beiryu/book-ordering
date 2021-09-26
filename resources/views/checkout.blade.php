@@ -9,7 +9,7 @@
 
 				<div class="col-lg-12">
                               <div class="order">
-                                    <h2 class="h1 order-title align-center">Your Order</h2>
+                                    <h2 class="h1 order-title align-center">Thanh toán</h2>
                                     <form action="#" method="post" class="cart-main">
                                           <table class="shop_table cart">
                                                 <thead class="cart-product-wrap-title-main">
@@ -42,7 +42,7 @@
                                                             </td>
 
                                                             <td class="product-subtotal">
-                                                                  <h5 class="total amount">{{ $item->total() }}</h5>
+                                                                  <h5 class="total amount">{{ number_format($item->total()) }} VND</h5>
                                                             </td>
 
                                                       </tr>
@@ -54,7 +54,7 @@
 
 
                                                             <div class="cart-product-content">
-                                                                  <h5 class="cart-product-title">Total:</h5>
+                                                                  <h5 class="cart-product-title">Tổng tiền:</h5>
                                                             </div>
 
 
@@ -65,7 +65,7 @@
                                                       </td>
 
                                                       <td class="product-subtotal">
-                                                            <h5 class="total amount">{{ (Cart::total()) }}</h5>
+                                                            <h5 class="total amount">{{ number_format(Cart::total()) }} VND</h5>
                                                       </td>
                                                 </tr>
 
@@ -90,16 +90,17 @@
                                                       
                                                       <span style="float: right;">
                                                             <form action="{{ route('cart.checkout') }}" method="POST">
-                                                                  {{ csrf_field() }}
+                                                                  @csrf
                                                                   <script
                                                                   src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                                                  data-key="pk_test_49o7ISW77yQcjzjWCBvTvCbk"
+                                                                  data-key="pk_test_51JdsdTF4FTJBI9BoJNorywfar4RJUINLpozza0kjMbpVDwPvNWOGEonqNeJujg0ncjBlxGnR57tKPald7ujkTvFi00yaG5vLuR"
                                                                   data-amount="{{ Cart::total() }}"
-                                                                  data-name="Udemy E-commerce tutorial"
-                                                                  data-description="Buy some books"
+                                                                  data-name="Nhà sách online"
+                                                                  data-description="Uy tín - Chất lượng"
                                                                   data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                                                                   data-locale="auto">
                                                                   </script>
+                                                                  
                                                             </form>
                                                       </span>
                                                 </div>
