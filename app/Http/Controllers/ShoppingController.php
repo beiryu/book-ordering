@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ShoppingController extends Controller
 {
-    public function add_to_cart()
+    public function addToCart()
     {
         $pdt = Product::find(request()->pdt_id);
 
@@ -29,13 +30,13 @@ class ShoppingController extends Controller
         return view('cart');
     }
 
-    // public function cart_delete($id)
-    // {
-    //     Cart::remove($id);
+    public function cartDelete($id)
+    {
+        Cart::remove($id);
 
-    //     Session::flash('success', 'Product removed from cart.');
-    //     return redirect()->back();
-    // }
+        Session::flash('success', 'Product removed from cart.');
+        return redirect()->back();
+    }
 
     // public function incr($id, $qty)
     // {

@@ -24,9 +24,11 @@ Auth::routes();
 
 Route::get('/product/{product}', [FrontEndController::class, 'singleProduct'])->name('product.single');
 
-Route::post('/cart/add', [ShoppingController::class, 'add_to_cart'])->name('cart.add');
+Route::post('/cart/add', [ShoppingController::class, 'addToCart'])->name('cart.add');
 
 Route::get('/cart', [ShoppingController::class, 'cart'])->name('cart');
+
+Route::get('/cart/delete/{product}', [ShoppingController::class, 'cartDelete'])->name('cart.delete');
 
 Route::resource('products', ProductController::class);
 
